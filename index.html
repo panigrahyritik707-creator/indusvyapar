@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IndusVyapar (इंडस व्यापार) - बहुभाषी अंतर्राज्यीय व्यापार मंच</title>
+  <meta name="description" content="एक छोटा दुकानदार जो केवल हिन्दी जानता है, वह अब पूरे भारत में तमिल, तेलुगु, कन्नड़, बांग्ला आदि भाषाओं में सीधे व्यापार कर सकता है।">
+  
+  <!-- Google Fonts: Poppins, Inter & Noto Sans Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <span class="badge-pill">🇮🇳 'एक भारत - श्रेष्ठ व्यापार'</span>
+    <span><strong>इंडस व्यापार AI:</strong> हिन्दी भाषी छोटे दुकानदार अब पूरे देश (तमिलनाडु, कर्नाटक, बंगाल, केरल आदि) में बिना भाषा रुकावट के बेचें!</span>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-wrapper" id="brand-link">
+        <div class="brand-logo-icon">
+          <i class="fa-solid fa-store"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Indus<span class="saffron">Vyapar</span> <small style="font-size:0.7rem; color:#f97316;">AI सेतु</small></h1>
+          <p>स्थानीय दुकान • देश भर का व्यापार</p>
+        </div>
+      </a>
+
+      <!-- Perspective Mode Switcher (The core interactive toggle) -->
+      <div class="perspective-switch-box" role="tablist">
+        <button class="mode-btn active vendor-active" id="tab-vendor" onclick="switchView('vendor')" title="दुकानदार का हिन्दी डैशबोर्ड देखें">
+          <i class="fa-solid fa-shop"></i> 
+          <span>दुकानदार पोर्टल (हिन्दी)</span>
+        </button>
+        <button class="mode-btn" id="tab-buyer" onclick="switchView('buyer')" title="अन्य राज्यों के खरीदारों का बहुभाषी स्टोर देखें">
+          <i class="fa-solid fa-cart-shopping"></i> 
+          <span>ग्राहक स्टोरफ़्रंट (Multilingual)</span>
+        </button>
+        <button class="mode-btn" id="tab-voice" onclick="switchView('voice')" title="लाइव ऑडियो एवं अनुवाद टेस्ट करें">
+          <i class="fa-solid fa-microphone-lines"></i> 
+          <span>लाइव वॉयस अनुवाद</span>
+        </button>
+      </div>
+
+      <!-- Quick Action / Live Sync Status -->
+      <div class="header-actions">
+        <div class="stat-chip" id="interstate-sync-chip">
+          <span class="stat-pulse"></span>
+          <span>9 भारतीय भाषाएँ सक्रिय</span>
+        </div>
+        <button class="btn-secondary" onclick="openShareModal()" style="padding: 7px 14px; font-size: 0.85rem;">
+          <i class="fa-solid fa-share-nodes"></i> स्टोर लिंक शेयर
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main App Content Container -->
+  <main class="app-container">
+
+    <!-- ======================================================================
+         VIEW 1: VENDOR PERSPECTIVE (दुकानदार पोर्टल - 100% Hindi First)
+         ====================================================================== -->
+    <section id="view-vendor" class="view-section active">
+      
+      <!-- Vendor Profile Banner -->
+      <div class="vendor-hero-card">
+        <div class="vendor-profile-info">
+          <img src="assets/vendor_hero.jpg" alt="दुकानदार पं. रामेश्वर वर्मा" class="vendor-avatar" id="vendor-avatar-img">
+          <div class="vendor-details">
+            <h2>
+              श्री रामेश्वर वर्मा 
+              <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> सत्यापित कारीगर</span>
+            </h2>
+            <p><i class="fa-solid fa-location-dot" style="color:#fb923c;"></i> 'श्री काशी विश्वनाथ टेक्सटाइल्स', गोदौलिया चौक, वाराणसी (उ.प्र.)</p>
+            <p style="font-size: 0.82rem; color: #cbd5e1; margin-top: 4px;">
+              <i class="fa-solid fa-language"></i> दुकानदार की भाषा: <strong>शुद्ध हिन्दी (Hindi Only)</strong> • AI द्वारा 8 राज्यों में स्वतः अनुवादित
+            </p>
+          </div>
+        </div>
+
+        <div class="vendor-hero-stats">
+          <div class="hero-stat-card">
+            <div class="val" id="stat-products-count">3</div>
+            <div class="lbl">कुल सक्रिय उत्पाद</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="val">₹1,05,550</div>
+            <div class="lbl">अंतर्राज्यीय बिक्री (इस माह)</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="val">6 राज्य</div>
+            <div class="lbl">खरीदार नेटवर्क (TN, KA, WB...)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Vendor Hub -->
+      <div class="vendor-grid">
+        
+        <!-- Left: Voice-First Product Addition & Multilingual Auto-Generator -->
+        <div class="smart-card">
+          <div class="smart-card-header">
+            <div class="smart-card-title">
+              <div class="icon-badge"><i class="fa-solid fa-microphone"></i></div>
+              <div>
+                बोलकर या लिखकर नया सामान जोड़ें
+                <div style="font-size: 0.75rem; font-weight: normal; color: var(--text-muted);">
+                  आप केवल हिन्दी में बोलें — AI दक्षिण और पूर्व भारत की 8 भाषाओं में अपने आप कैटलॉग बना देगा!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Voice Recorder Section -->
+          <div class="voice-recorder-container">
+            <div class="mic-button-wrapper">
+              <button class="mic-btn" id="vendor-mic-btn" onclick="toggleVoiceRecording()" title="माइक दबाकर हिन्दी में बोलें">
+                <i class="fa-solid fa-microphone" id="mic-icon"></i>
+              </button>
+            </div>
+            <div class="mic-hint-text" id="mic-status-text">माइक पर क्लिक करें और हिन्दी में सामान का नाम और भाव बोलें</div>
+            <p class="mic-subtext">जैसे: "बनारसी कतान साड़ी, शुद्ध जरी, थोक भाव ₹1,850, न्यूनतम 10 पीस"</p>
+
+            <!-- Quick Voice Presets for Instant Demo Testing -->
+            <div class="quick-prompts-row">
+              <span class="quick-prompts-label">या तुरंत डेमो चुनें:</span>
+              <button class="prompt-chip" onclick="simulateVoiceInput(1)">
+                <i class="fa-solid fa-volume-high"></i> बनारसी कतान सिल्क साड़ी (₹1,850)
+              </button>
+              <button class="prompt-chip" onclick="simulateVoiceInput(2)">
+                <i class="fa-solid fa-volume-high"></i> मुरादाबादी पीतल मोर दीया (₹620)
+              </button>
+              <button class="prompt-chip" onclick="simulateVoiceInput(3)">
+                <i class="fa-solid fa-volume-high"></i> कश्मीरी मोंगरा केसर डिब्बी (₹2,300)
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Transcription & Details Edit Box -->
+          <div class="transcription-box">
+            <div class="transcription-header">
+              <span><i class="fa-solid fa-headphones"></i> आपकी हिन्दी आवाज़ (Live Voice Transcript)</span>
+              <span id="transcription-word-count" style="color:var(--primary); font-weight:700;">0 शब्द</span>
+            </div>
+            <textarea id="hindi-voice-text" class="transcription-textarea" placeholder="आपकी बोली हुई हिन्दी यहाँ स्वतः टाइप होगी या आप सीधे यहाँ लिख भी सकते हैं..."></textarea>
+            
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+              <div style="font-size:0.8rem; color:var(--text-muted);">
+                <i class="fa-solid fa-wand-magic-sparkles" style="color:var(--primary);"></i> AI पार्सर: नाम, थोक दर और न्यूनतम आर्डर अपने आप पहचान लेता है।
+              </div>
+              <button class="btn-primary" onclick="generateMultilingualCatalog()" style="padding: 7px 16px; font-size: 0.88rem;">
+                <i class="fa-solid fa-bolt"></i> 8 भाषाओं में अनुवाद करें
+              </button>
+            </div>
+          </div>
+
+          <!-- Real-Time Multilingual Translation Cards Preview -->
+          <div id="ai-multilingual-preview-wrapper" style="display:none; margin-top:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <h4 style="font-size:0.95rem; font-weight:700; color:var(--secondary);">
+                <i class="fa-solid fa-earth-asia" style="color:var(--primary);"></i> AI द्वारा स्वतः तैयार क्षेत्रीय कैटलॉग (8 भाषाएँ)
+              </h4>
+              <span style="font-size:0.75rem; color:#10b981; font-weight:600;"><i class="fa-solid fa-circle-check"></i> अनुवाद तैयार</span>
+            </div>
+
+            <div class="ai-preview-grid" id="ai-preview-cards">
+              <!-- Dynamically populated cards for Tamil, Telugu, Kannada, Bengali, etc. -->
+            </div>
+
+            <div class="form-action-row">
+              <button class="btn-secondary" onclick="clearVoiceInput()">रद्द करें</button>
+              <button class="btn-primary" onclick="publishProductToStore()">
+                <i class="fa-solid fa-cloud-arrow-up"></i> स्टोर में लाइव प्रकाशित करें
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Live Bilingual Chat with Interstate Buyers -->
+        <div class="smart-card chat-container-card">
+          <div class="smart-card-header">
+            <div class="chat-buyer-badge">
+              <div class="buyer-avatar-circle">M</div>
+              <div class="chat-buyer-details">
+                <h4 id="chat-buyer-name">मुुरुगन एस. (Murugan S.)</h4>
+                <p><i class="fa-solid fa-location-dot"></i> टी. नगर, चेन्नई, तमिलनाडु (Tamil Nadu)</p>
+              </div>
+            </div>
+            <div class="live-translation-indicator">
+              <i class="fa-solid fa-rotate"></i> लाइव तमिल ⇄ हिन्दी
+            </div>
+          </div>
+
+          <!-- Chat Messages Scroll Area -->
+          <div class="chat-messages-area" id="chat-messages-list">
+            
+            <!-- Message from Buyer (Tamil) with automatic Hindi translation for Vendor -->
+            <div class="chat-msg buyer">
+              <div class="msg-bubble">
+                <div style="font-weight: 600; font-size:0.95rem;">
+                  "வணக்கம் ஐயா, எனக்கு 50 பனாரசி புடவைகள் சென்னைக்கு வேண்டும். மொத்த விலை எவ்வளவு?"
+                </div>
+                <div class="translation-subtext">
+                  <span><i class="fa-solid fa-language"></i> <strong>हिन्दी अनुवाद:</strong> "नमस्ते सर, मुझे चेन्नई के लिए 50 बनारसी साड़ियाँ चाहिए। थोक मूल्य कितना होगा?"</span>
+                  <button class="speak-icon-btn" onclick="speakText('नमस्ते सर, मुझे चेन्नई के लिए 50 बनारसी साड़ियाँ चाहिए। थोक मूल्य कितना होगा?', 'hi-IN')" title="हिन्दी में सुनें">
+                    <i class="fa-solid fa-volume-high"></i>
+                  </button>
+                </div>
+              </div>
+              <span class="msg-timestamp">10:42 AM • मूल: தமிழ்</span>
+            </div>
+
+            <!-- Vendor's Reply (In Hindi) automatically translated to Tamil for Buyer -->
+            <div class="chat-msg vendor">
+              <div class="msg-bubble">
+                <div>"नमस्ते मुरुगन जी! 50 साड़ियों पर आपको ₹1,650 का थोक रेट मिलेगा। डिलीवरी 3 दिन में हो जाएगी।"</div>
+                <div class="translation-subtext">
+                  <span><i class="fa-solid fa-share"></i> <strong>சென்னையில் வாங்குபவர் பார்த்தது:</strong> "வணக்கம் திரு முருகன்! 50 புடவைகளுக்கு ₹1,650 மொத்த விலை கிடைக்கும். 3 நாட்களில் டெலிவரி செய்யப்படும்."</span>
+                  <button class="speak-icon-btn" onclick="speakText('வணக்கம் திரு முருகன்! 50 புடவைகளுக்கு ₹1,650 மொத்த விலை கிடைக்கும். 3 நாட்களில் டெலிவரி செய்யப்படும்.', 'ta-IN')" title="தமிழ் உச்சரிப்பைக் கேளுங்கள்">
+                    <i class="fa-solid fa-volume-high"></i>
+                  </button>
+                </div>
+              </div>
+              <span class="msg-timestamp">10:45 AM • स्वतः तमिल में भेजा गया</span>
+            </div>
+
+          </div>
+
+          <!-- Chat Input Bar for Hindi Vendor -->
+          <div class="chat-input-bar">
+            <input type="text" id="vendor-chat-input" class="chat-input" placeholder="यहाँ हिन्दी में जवाब लिखें या माइक से बोलें..." onkeydown="handleChatKeyDown(event)">
+            <button class="chat-send-btn" onclick="sendVendorMessage()" title="संदेश भेजें (तमिल में स्वतः अनुवाद होकर पहुँचेगा)">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+          <div style="font-size:0.75rem; color:var(--text-muted); margin-top:8px; text-align:center;">
+            <i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> आप केवल अपनी हिन्दी में बात करें, खरीदार को उसकी स्थानीय भाषा में संदेश प्राप्त होगा।
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Section: Interstate Orders & Logistics Tracking -->
+      <div class="smart-card">
+        <div class="smart-card-header">
+          <div class="smart-card-title">
+            <div class="icon-badge"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              अंतर्राज्यीय ऑर्डर और ई-वे बिल ट्रैकिंग (Interstate Orders)
+              <div style="font-size: 0.75rem; font-weight: normal; color: var(--text-muted);">
+                उत्तर प्रदेश से दक्षिण एवं पूर्व भारत में सीधे पार्सल प्रेषण
+              </div>
+            </div>
+          </div>
+          <span class="state-badge"><i class="fa-solid fa-file-invoice"></i> IGST बिलिंग सक्रिय</span>
+        </div>
+
+        <div class="orders-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ऑर्डर आईडी</th>
+                <th>खरीदार व गंतव्य राज्य</th>
+                <th>सामान विवरण</th>
+                <th>मात्रा</th>
+                <th>राशि व कर (IGST)</th>
+                <th>लॉजिस्टिक्स पार्टनर</th>
+                <th>स्थिति</th>
+              </tr>
+            </thead>
+            <tbody id="orders-table-body">
+              <tr>
+                <td><strong>#ORD-TN-9812</strong></td>
+                <td>
+                  <div><strong>मुरुगन एस.</strong></div>
+                  <span class="state-badge">📍 कोयंबटूर (Tamil Nadu)</span>
+                </td>
+                <td>शाही बनारसी कतान सिल्क साड़ी</td>
+                <td>25 पीस</td>
+                <td>₹46,250 <small style="color:var(--text-muted);">(5% IGST)</small></td>
+                <td><i class="fa-solid fa-truck"></i> दिल्लीवरी सर्फेस (Delhivery)</td>
+                <td><span class="status-pill status-in-transit"><i class="fa-solid fa-route"></i> रास्ते में (In Transit)</span></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-KA-4105</strong></td>
+                <td>
+                  <div><strong>वेंकटेश राव</strong></div>
+                  <span class="state-badge">📍 जयनगर, बेंगलुरु (Karnataka)</span>
+                </td>
+                <td>मुरादाबादी हस्तनिर्मित पीतल मोर दीया</td>
+                <td>40 पीस</td>
+                <td>₹24,800 <small style="color:var(--text-muted);">(12% IGST)</small></td>
+                <td><i class="fa-solid fa-box"></i> ब्लू डार्ट कार्गो (BlueDart)</td>
+                <td><span class="status-pill status-delivered"><i class="fa-solid fa-circle-check"></i> डिलीवर हो गया</span></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-WB-6721</strong></td>
+                <td>
+                  <div><strong>सुब्रतो बनर्जी</strong></div>
+                  <span class="state-badge">📍 हावड़ा, कोलकाता (West Bengal)</span>
+                </td>
+                <td>प्रीमियम कश्मीरी मोंगरा केसर डिब्बी</td>
+                <td>15 डिब्बी</td>
+                <td>₹34,500 <small style="color:var(--text-muted);">(5% IGST)</small></td>
+                <td><i class="fa-solid fa-truck"></i> गति कार्गो (Gati B2B)</td>
+                <td><span class="status-pill status-processing"><i class="fa-solid fa-clock"></i> पैकिंग में (Processing)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 2: BUYER PERSPECTIVE (ग्राहक स्टोरफ़्रंट - Multilingual Regional Portal)
+         ====================================================================== -->
+    <section id="view-buyer" class="view-section">
+      
+      <!-- Buyer Hero Banner (Translates dynamically based on chosen language) -->
+      <div class="buyer-hero-banner">
+        <div class="buyer-banner-content">
+          <div class="store-verified-tag">
+            <i class="fa-solid fa-award"></i> <span id="lbl-verified-store">Direct From Varanasi Weaver • Verified Artisan</span>
+          </div>
+          <h2 id="buyer-banner-title">Shree Kashi Vishwanath Handlooms & Crafts</h2>
+          <p id="buyer-banner-desc">
+            Direct wholesale sourcing of authentic Varanasi silk sarees, Moradabad brass artifacts, and GI-tagged heritage goods. Real-time language translation for buyers across all Indian states.
+          </p>
+          <div class="buyer-trust-badges">
+            <div class="trust-item"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> <span id="lbl-badge-1">Pan-India Express Logistics</span></div>
+            <div class="trust-item"><i class="fa-solid fa-file-invoice" style="color:#38bdf8;"></i> <span id="lbl-badge-2">Interstate GST (IGST) Compliant</span></div>
+            <div class="trust-item"><i class="fa-solid fa-money-bill-transfer" style="color:#f59e0b;"></i> <span id="lbl-badge-3">Escrow Protected B2B Orders</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 9-Language Selector Bar -->
+      <div class="language-selector-bar">
+        <div class="lang-selector-label">
+          <i class="fa-solid fa-globe globe-icon"></i> 
+          <span>Select Your Language / உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்:</span>
+        </div>
+
+        <div class="lang-buttons-row">
+          <button class="lang-switch-btn active" id="btn-lang-ta" onclick="selectBuyerLanguage('ta')">
+            <span>தமிழ்</span> <span class="lang-script-hint">(Tamil)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-te" onclick="selectBuyerLanguage('te')">
+            <span>తెలుగు</span> <span class="lang-script-hint">(Telugu)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-kn" onclick="selectBuyerLanguage('kn')">
+            <span>ಕನ್ನಡ</span> <span class="lang-script-hint">(Kannada)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-ml" onclick="selectBuyerLanguage('ml')">
+            <span>മലയാളം</span> <span class="lang-script-hint">(Malayalam)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-bn" onclick="selectBuyerLanguage('bn')">
+            <span>বাংলা</span> <span class="lang-script-hint">(Bengali)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-mr" onclick="selectBuyerLanguage('mr')">
+            <span>मराठी</span> <span class="lang-script-hint">(Marathi)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-gu" onclick="selectBuyerLanguage('gu')">
+            <span>ગુજરાતી</span> <span class="lang-script-hint">(Gujarati)</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-en" onclick="selectBuyerLanguage('en')">
+            <span>English</span>
+          </button>
+          <button class="lang-switch-btn" id="btn-lang-hi" onclick="selectBuyerLanguage('hi')">
+            <span>हिन्दी</span> <span class="lang-script-hint">(Hindi)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Interstate Shipping & Tax Calculator Bar -->
+      <div class="interstate-shipping-card">
+        <div class="shipping-header">
+          <h3>
+            <i class="fa-solid fa-calculator" style="color:var(--primary);"></i>
+            <span id="lbl-shipping-title">Interstate Delivery & Tax Calculator (वाराणसी से आपके राज्य तक)</span>
+          </h3>
+          <span style="font-size:0.8rem; color:var(--text-muted);">
+            <i class="fa-solid fa-clock"></i> <span id="lbl-dispatch-time">Dispatched within 24 Hours</span>
+          </span>
+        </div>
+
+        <div class="shipping-selector-row">
+          <div class="input-group">
+            <label id="lbl-dest-state"><i class="fa-solid fa-map-pin"></i> உங்கள் மாநிலத்தைத் தேர்ந்தெடுக்கவும் (Destination State):</label>
+            <select id="buyer-dest-state" class="input-select" onchange="calculateInterstateShipping()">
+              <option value="TN" selected>தமிழ்நாடு (Tamil Nadu - Chennai / Coimbatore)</option>
+              <option value="KA">ಕರ್ನಾಟಕ (Karnataka - Bengaluru / Mysuru)</option>
+              <option value="TS">తెలంగాణ (Telangana - Hyderabad / Warangal)</option>
+              <option value="AP">ఆంధ్రప్రదేశ్ (Andhra Pradesh - Vijayawada / Vizag)</option>
+              <option value="KL">കേരളം (Kerala - Kochi / Kozhikode)</option>
+              <option value="WB">পশ্চিমবঙ্গ (West Bengal - Kolkata / Siliguri)</option>
+              <option value="MH">महाराष्ट्र (Maharashtra - Mumbai / Pune)</option>
+              <option value="GJ">ગુજરાત (Gujarat - Ahmedabad / Surat)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label id="lbl-est-days"><i class="fa-solid fa-truck"></i> அஞ்சல் நேரம் (Transit Time):</label>
+            <div class="shipping-result-pill" style="padding: 10px 14px;">
+              <span id="calc-transit-days"><strong>3 - 4 நாட்கள் (Days)</strong></span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label id="lbl-est-tax"><i class="fa-solid fa-percent"></i> மாநிலங்களுக்கு இடையேயான வரி (IGST):</label>
+            <div class="shipping-result-pill" style="padding: 10px 14px;">
+              <span id="calc-igst-tax"><strong>5% / 12% IGST (Input Credit Available)</strong></span>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn-primary" onclick="openBulkInquiryModal()" style="padding: 10px 18px;">
+              <i class="fa-brands fa-whatsapp"></i> <span id="lbl-btn-quote">நேரடி மொத்த விலை பெறுக (WhatsApp Quote)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Catalog Section -->
+      <div class="catalog-section-header">
+        <h3 id="lbl-catalog-heading">நேரடி தயாரிப்புகள் (Authentic Wholesale Catalog)</h3>
+        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-tag"></i> <span id="lbl-weaver-guarantee">Manufacturer Direct Rate • No Middlemen</span></span>
+      </div>
+
+      <!-- Dynamically Rendered Multilingual Product Cards -->
+      <div class="catalog-grid" id="buyer-catalog-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 3: LIVE SPEECH & AUDIO TRANSLATION PLAYGROUND
+         ====================================================================== -->
+    <section id="view-voice" class="view-section">
+      <div class="speech-playground-section">
+        
+        <div class="playground-header">
+          <div class="stat-chip" style="display:inline-flex; margin-bottom:12px;">
+            <i class="fa-solid fa-volume-high"></i> AI Real-Time Speech Synthesizer
+          </div>
+          <h3>लाइव वॉयस ट्रांसलेशन प्लेग्राउंड (Hindi ⇄ South/East Languages)</h3>
+          <p>
+            यहाँ आप देख सकते हैं कि जब एक हिन्दी भाषी दुकानदार अपनी भाषा में बोलता है, तो तमिलनाडु या कर्नाटक के ग्राहक को वह आवाज उसकी भाषा में कैसे सुनाई देती है!
+          </p>
+        </div>
+
+        <div class="playground-cols">
+          
+          <!-- Column 1: Vendor Hindi Voice -->
+          <div class="audio-box">
+            <div class="audio-box-header">
+              <h4><i class="fa-solid fa-user" style="color:var(--primary);"></i> दुकानदार (वाराणसी)</h4>
+              <span class="lang-badge badge-ta" style="background:#fee2e2; color:#b91c1c;">हिन्दी (Hindi)</span>
+            </div>
+            
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">
+              दुकानदार का बोला हुआ हिन्दी वाक्य:
+            </p>
+
+            <textarea id="playground-hindi-text" class="transcription-textarea" style="min-height:90px;">"नमस्ते भाई साहब! हमारे पास शुद्ध कतान सिल्क और बनारसी साड़ियाँ थोक भाव में उपलब्ध हैं। आप न्यूनतम 10 साड़ियों का सैंपल मंगा सकते हैं।"</textarea>
+
+            <div style="display:flex; gap:8px; margin-top:12px;">
+              <button class="audio-listen-btn" onclick="playPlaygroundSpeech('hi')" style="background:var(--primary);">
+                <i class="fa-solid fa-volume-high"></i> हिन्दी आवाज़ सुनें
+              </button>
+              <button class="btn-secondary" onclick="runPlaygroundTranslation()" style="padding:8px 14px; font-size:0.85rem;">
+                <i class="fa-solid fa-arrows-rotate"></i> अनुवाद करें
+              </button>
+            </div>
+          </div>
+
+          <!-- Center Indicator -->
+          <div class="audio-arrow-center">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <!-- Column 2: Buyer Regional Voice -->
+          <div class="audio-box">
+            <div class="audio-box-header">
+              <h4><i class="fa-solid fa-cart-shopping" style="color:var(--accent-indigo);"></i> खरीदार का राज्य</h4>
+              
+              <select id="playground-target-lang" class="input-select" style="width:auto; padding:4px 10px; font-size:0.85rem;" onchange="runPlaygroundTranslation()">
+                <option value="ta" selected>தமிழ் (Tamil - TN)</option>
+                <option value="te">తెలుగు (Telugu - AP/TS)</option>
+                <option value="kn">ಕನ್ನಡ (Kannada - KA)</option>
+                <option value="ml">മലയാളം (Malayalam - KL)</option>
+                <option value="bn">বাংলা (Bengali - WB)</option>
+                <option value="mr">मराठी (Marathi - MH)</option>
+                <option value="gu">ગુજરાતી (Gujarati - GJ)</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">
+              खरीदार को सुनाई देने वाला क्षेत्रीय अनुवाद:
+            </p>
+
+            <div id="playground-translated-output" style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:12px; min-height:90px; font-size:0.95rem; line-height:1.45; color:var(--secondary); font-weight:500;">
+              "வணக்கம் ஐயா! எங்களிடம் தூய கட்டான் பட்டு மற்றும் பனாரசி புடவைகள் மொத்த விலையில் கிடைக்கின்றன. நீங்கள் குறைந்தபட்சம் 10 புடவைகளை மாதிரியாக ஆர்டர் செய்யலாம்."
+            </div>
+
+            <button class="audio-listen-btn" onclick="playPlaygroundSpeech('target')">
+              <i class="fa-solid fa-volume-high"></i> <span id="lbl-play-target-btn">தமிழ் ஆடியோ கேளுங்கள் (Listen in Tamil)</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       MODALS: Sample Request, Bulk WhatsApp Quote, Share Store
+       ====================================================================== -->
+  
+  <!-- Sample Request Modal -->
+  <div class="modal-overlay" id="sample-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal('sample-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size:1.3rem; font-weight:700; margin-bottom:6px; color:var(--secondary);">
+        <i class="fa-solid fa-box-open" style="color:var(--primary);"></i> <span id="modal-sample-title">Request Sample Parcel</span>
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;" id="modal-sample-desc">
+        Direct from Varanasi workshop. Shipped with manufacturer certificate.
+      </p>
+
+      <div class="input-group" style="margin-bottom:12px;">
+        <label>Selected Product:</label>
+        <input type="text" id="modal-product-name" class="input-select" readonly value="Banarasi Katan Silk Saree">
+      </div>
+
+      <div class="input-group" style="margin-bottom:12px;">
+        <label>Delivery Address & State:</label>
+        <input type="text" id="modal-delivery-addr" class="input-select" placeholder="Shop Name, Street, City, State, Pincode">
+      </div>
+
+      <div class="input-group" style="margin-bottom:16px;">
+        <label>Contact Phone / WhatsApp:</label>
+        <input type="tel" id="modal-phone" class="input-select" placeholder="+91 98765 43210">
+      </div>
+
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px 14px; border-radius:var(--radius-sm); font-size:0.8rem; color:var(--text-muted); margin-bottom:16px;">
+        <i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> <strong>AI Translation Guard:</strong> Your request will be instantly translated to Hindi so the artisan in Varanasi can pack and ship immediately.
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button class="btn-secondary" onclick="closeModal('sample-modal')">Cancel</button>
+        <button class="btn-primary" onclick="submitSampleRequest()">
+          <i class="fa-solid fa-paper-plane"></i> Submit Request
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share Store Link & QR Modal -->
+  <div class="modal-overlay" id="share-modal">
+    <div class="modal-card" style="text-align:center;">
+      <button class="modal-close-btn" onclick="closeModal('share-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <div style="width:50px; height:50px; border-radius:50%; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; margin:0 auto 14px auto; font-size:1.4rem;">
+        <i class="fa-solid fa-qrcode"></i>
+      </div>
+      <h3 style="font-size:1.3rem; font-weight:700; margin-bottom:6px; color:var(--secondary);">
+        डिजिटल स्टोर लिंक और क्यूआर कोड
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:18px;">
+        यह लिंक आप WhatsApp पर दक्षिण भारत या देश के किसी भी व्यापारी को भेज सकते हैं। वह खोलते ही अपनी भाषा में देख सकेगा!
+      </p>
+
+      <!-- SVG QR Code -->
+      <div style="background:#ffffff; border:2px dashed var(--border-light); padding:16px; border-radius:var(--radius-md); display:inline-block; margin-bottom:16px;">
+        <svg width="160" height="160" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="29" height="29" fill="white"/>
+          <path d="M0 0h7v7H0V0zm2 2v3h3V2H2zm-2 20h7v7H0v-7zm2 2v3h3v-3H2zm20-22h7v7h-7V0zm2 2v3h3V2h-3zM9 1h2v2H9V1zm4 0h2v4h-2V1zm-4 4h2v2H9V5zm7-2h2v4h-2V3zm3 2h2v2h-2V5zm-8 4h2v2h-2V9zm4 0h4v2h-4V9zm6 0h2v2h-2V9zm-8 4h4v2h-4v-2zm6 0h2v4h-2v-4zm-14 2h2v2H9v-2zm-6 2h4v2H3v-2zm12 2h2v2h-2v-2zm4 0h4v2h-4v-2zm-8 2h2v4h-2v-4zm4 0h2v2h-2v-2zm4 2h4v2h-4v-2z" fill="#0f172a"/>
+        </svg>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-bottom:18px;">
+        <input type="text" id="share-link-input" class="input-select" value="https://indusvyapar.in/shree-kashi-textiles" readonly>
+        <button class="btn-primary" onclick="copyShareLink()"><i class="fa-solid fa-copy"></i> कॉपी करें</button>
+      </div>
+
+      <a href="https://api.whatsapp.com/send?text=Namaste!%20Check%20out%20our%20authentic%20Varanasi%20wholesale%20store:%20https://indusvyapar.in/shree-kashi-textiles" target="_blank" class="btn-card-inquire" style="width:100%; text-decoration:none; justify-content:center; padding:12px; font-size:0.95rem;">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp पर शेयर करें
+      </a>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div>
+        <h4 style="color:#ffffff; font-size:1.1rem; margin-bottom:4px;">IndusVyapar (इंडस व्यापार AI)</h4>
+        <p>भारत के लाखों एमएसएमई (MSME) और छोटे दुकानदारों के लिए भाषा-मुक्त अंतर्राज्यीय वाणिज्य प्रणाली।</p>
+      </div>
+      <div class="footer-links">
+        <a href="javascript:void(0)" onclick="switchView('vendor')">दुकानदार पोर्टल</a>
+        <a href="javascript:void(0)" onclick="switchView('buyer')">क्रेता स्टोरफ़्रंट</a>
+        <a href="javascript:void(0)" onclick="switchView('voice')">वॉयस अनुवादक</a>
+        <a href="javascript:void(0)">सहायता केंद्र</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
